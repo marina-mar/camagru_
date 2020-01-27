@@ -1,13 +1,50 @@
+:root{
+  /*Yellows*/
+  --bgYellow: #F4B63C;
+  --darkYellow: #D08900;
+  --lightYellow1: #FFD481;
+  --lightYellow2: #FFD27C;
+  --whiteYellow: #FFE3AB;
+  /*oranges*/
+  --bgOrange: #F48C3C;
+  --darkOrange: #D05A00;
+  --lightOrange1: #FFB881;
+  --lightOrange2: #FFB47C;
+  --whiteOrange: #FFD0AB;
+  /*pinks / reds */
+  --bgPink: #EE3B48;
+  --darkPink: #CB000F;
+  --lightPink1: #FB8089;
+  --lightPink2: #F87881;
+  --whitePink: #F9A8AE;
+  /*blues*/
+  -bgBlue: #25968E;
+  --darkBlue: #008077;
+  --lightBlue1: #66C8C1;
+  --lightBlue2: #4C9D97;
+  --whiteBlue: #70A6A2;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: var(--bgPink);
+  font-family: "Times New Roman", Times, serif; /*web safe font*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
+}
+
+.center {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }

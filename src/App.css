@@ -1,33 +1,57 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Francois+One|Lobster+Two&display=swap');
+
+:root{
+  /*Yellows*/
+  --bgYellow: #F4B63C;
+  --darkYellow: #D08900;
+  --lightYellow1: #FFD481;
+  --lightYellow2: #FFD27C;
+  --whiteYellow: #FFE3AB;
+  /*oranges*/
+  --bgOrange: #F48C3C;
+  --darkOrange: #703300;
+  --lightOrange1: #FFB881;
+  --lightOrange2: #FFB47C;
+  --whiteOrange: #FFD0AB;
+  /*pinks / reds */
+  --bgPink: #EE3B48;
+  --darkPink: #731A21;
+  --lightPink1: #FB8089;
+  --lightPink2: #F87881;
+  --whitePink: #F9A8AE;
+  /*blues*/
+  --bgBlue: #25968E;
+  --darkBlue: #003E3E;
+  --lightBlue1: #66C8C1;
+  --lightBlue2: #4C9D97;
+  --whiteBlue: #70A6A2;
+}
+
+body {
+  margin: 0;
   text-align: center;
+  background-color: var(--bgBlue);
+  font-family: 'Francois One', sans-serif;
+  /*font-family: "Times New Roman", Times, serif; /*web safe font*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.container {
+  background-color: var(--bgYellow);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+/*how to make animations in CSS:
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +59,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+}*/

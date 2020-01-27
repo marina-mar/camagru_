@@ -1,0 +1,79 @@
+#Navbar {
+    font-size: calc(8px + 2vmin);
+    margin-right: 22vw;
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+.NavbarGallery {
+    background-color: var(--bgOrange);
+    /*top-left, top-right, bottom-right, bottom-left*/
+    /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -webkit-border-radius: 25px 25px 0px 0px;
+    /* Firefox 1-3.6 */
+    -moz-border-radius: 25px 25px 0px 0px;
+    /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+    border-radius: 25px 25px 0px 0px;
+    width: 10%;
+    height: 5%;
+    padding-bottom: 0;
+    padding-right: calc(8px + 1vmin);
+    padding-left: calc(8px + 1vmin);
+    padding-top: 1%;
+    color: var(--darkOrange);
+    -webkit-box-shadow: inset -7px -8px 6px -6px black;
+    -moz-box-shadow: inset -7px -8px 6px -6px black;
+    box-shadow: inset -7px -8px 6px -6px black;
+}
+.NavbarStudio {
+    background-color: var(--bgBlue);
+    /*top-left, top-right, bottom-right, bottom-left*/
+    /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -webkit-border-radius: 25px 25px 0px 0px;
+    /* Firefox 1-3.6 */
+    -moz-border-radius: 25px 25px 0px 0px;
+    /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+    border-radius: 25px 25px 0px 0px;
+    width: 10%;
+    height: 5%;
+    padding-bottom: 0;
+    padding-right: calc(8px + 1vmin);
+    padding-left: calc(8px + 1vmin);
+    padding-top: 1%;
+    color: var(--darkBlue);
+    -webkit-box-shadow: inset 7px -8px 6px -6px black;
+    -moz-box-shadow: inset 7px -8px 6px -6px black;
+    box-shadow: inset 7px -8px 6px -6px black;
+}
+.NavbarAccount {
+    background-color: var(--bgPink);
+    /*top-left, top-right, bottom-right, bottom-left*/
+    /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -webkit-border-radius: 25px 25px 0px 0px;
+    /* Firefox 1-3.6 */
+    -moz-border-radius: 25px 25px 0px 0px;
+    /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+    border-radius: 25px 25px 0px 0px;
+    width: 10%;
+    height: 5%;
+    padding-bottom: 0;
+    padding-right: calc(8px + 1vmin);
+    padding-left: calc(8px + 1vmin);
+    padding-top: 1%;
+    color: var(--darkPink);
+    -webkit-box-shadow: inset 7px -8px 6px -6px black;
+    -moz-box-shadow: inset 7px -8px 6px -6px black;
+    box-shadow: inset 7px -8px 6px -6px black;
+}
+
+.NavbarAccount:active {
+    -webkit-box-shadow: 0 0 0;
+    -moz-box-shadow: 0 0 0;
+    box-shadow: 0 0 0;
+}

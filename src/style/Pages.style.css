@@ -1,0 +1,78 @@
+.galleryPage {
+    background-color: var(--bgOrange);
+    /*top-left, top-right, bottom-right, bottom-left*/
+    /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -webkit-border-radius: 25px 0px 25px 25px;
+    /* Firefox 1-3.6 */
+    -moz-border-radius: 25px 0px 25px 25px;
+    /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+    border-radius: 25px 0px 25px 25px;
+    min-height: 78vh;
+    min-width: 78vw;
+    max-height: 78vh;
+    max-width: 78vw;
+    color: var(--darkOrange);
+}
+.accountPage {
+    background-color: var(--bgPink);
+    /*top-left, top-right, bottom-right, bottom-left*/
+    /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -webkit-border-radius: 25px 0px 25px 25px;
+    /* Firefox 1-3.6 */
+    -moz-border-radius: 25px 0px 25px 25px;
+    /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+    border-radius: 25px 0px 25px 25px;
+    min-height: 78vh;
+    min-width: 78vw;
+    max-height: 78vh;
+    max-width: 78vw;
+    color: var(--darkPink);
+    /*because of the sign: */
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.signUpPage {
+    width: 100%;
+    margin-top: 5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.topSignUp {
+    width: 100%;
+    height: 8vh;
+    background-image: url("../images/stberry.gif");
+}
+
+.signUpInput {
+    font-size: calc(7px + 2vmin);
+    width: 16vw;
+    height: 4vh;
+}
+table {
+    width: 100%;
+    margin-right: 5%;
+    margin-bottom: 0;
+}
+td {
+    text-align: left;
+    font-size: calc(8px + 2vmin);
+}
+
+.studioPage {
+    background-color: var(--bgBlue);
+    /*top-left, top-right, bottom-right, bottom-left*/
+    /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -webkit-border-radius: 25px 0px 25px 25px;
+    /* Firefox 1-3.6 */
+    -moz-border-radius: 25px 0px 25px 25px;
+    /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+    border-radius: 25px 0px 25px 25px;
+    min-height: 78vh;
+    min-width: 78vw;
+    max-height: 78vh;
+    max-width: 78vw;
+    color: var(--darkBlue);
+}
