@@ -7,18 +7,13 @@ const UserContext = React.createContext();
 //  will store, in its state, the data we need
 class UserProvider extends Component {
 	state = {
-		signingUp: false,
-		signUp: () => {
-			console.log("sign up state:" + this.signingUp);
-			this.signingUp = !this.signingUp;
-			console.log("sign up state:" + this.signingUp);
-		},
-		isLoggedIn: false,
+		isLoggedIn: true,
 		userData: {
 			userName: "mcouto",
 			userId: 3,
 			firstName: "Marina",
-			lastName: "Couto"
+			lastName: "Couto",
+			emailAddress: "marinamacc@hotmail.com"
 		}
 	};
 

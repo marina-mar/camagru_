@@ -1,4 +1,63 @@
 /* account details */
+.accountDetails {
+    width: 100%;
+    text-align: center;
+}
+
+.accountOption {
+    height: 3vh;
+    margin-bottom: 3vh;
+    background-color: var(--lightPink1);
+}
+
+.accountOptionClicked {
+    height: 11vh;
+    margin-bottom: 1vh;
+    background-color: var(--lightPink1);
+}
+.inputClass {
+    position: relative;
+    margin-top: 0;
+}
+.allOptions {
+    position: absolute;
+}
+.accountOptionInput {
+    margin-top: 0;
+    height: 2vh;
+    width: 15vw;
+}
+.deleteOption {
+    margin-left: 25%;
+    width: 50%;
+    height: 3vh;
+    color: var(--lightPink1);
+    background-color: var(--darkPink);
+}
+
+.optionsButton {
+    margin-left: 1%;
+    color: var(--darkPink);
+    font-family: 'Francois One', sans-serif;
+    font-size: calc(1px + 2vmin);
+    border: 2px solid var(--darkPink);
+    border-radius: 10px;
+    background-color: var(--lightPink1);
+    height: 3vmin;
+    padding-bottom: 3vh;
+    line-height: calc(4vh - 6px);
+}
+
+.optionsButton:hover {
+    color: var(--lightPink1);
+    border-color: var(--lightPink1);
+    background-color: var(--darkPink);
+}
+.written {
+    line-height: 2vh;
+    margin-bottom: 0;
+}
+
 /* sign in and sign up */
 .login {
     font-size: calc(12px + 2vmin);

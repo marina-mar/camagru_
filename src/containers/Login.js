@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../style/smallComponents.css";
-import {UserContext} from "../userContext";
+import {UserContext} from "../context/userContext";
 
 class Login extends Component {
 	render () {

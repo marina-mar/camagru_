@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../style/Navbar.style.css"
-import { UserContext } from "../userContext";
+import { UserContext } from "../context/userContext";
 
 class Navbar extends Component {
 	constructor(props) {

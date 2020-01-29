@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 /*To handle multiple pages */
 import {BrowserRouter as Router} from "react-router-dom";
 /* get context */
-import { UserProvider } from './userContext';
+import { UserProvider } from './context/userContext';
 
 import './index.css';
 import App from './App';
