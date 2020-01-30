@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import "../style/Pages.style.css";
-import Sticker from "./Sticker";
+import Sticker from "../components/Sticker";
 import {UserContext} from "../context/userContext";
 
 export default class StickerSelector extends Component {
+    constructor(props) {
+        super(props);
+    }
     printImages () {
-        return this.context.photoStickers.map( oneSticker => {
+        return this.props.photoStickers.map( oneSticker => {
             return <Sticker key={oneSticker.id}
                             img={oneSticker.img}
                             title={oneSticker.title} />;

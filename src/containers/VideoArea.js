@@ -1,22 +1,16 @@
 import React, { Component } from "react";
 
 import "../style/Pages.style.css";
-import { UserContext } from "../context/userContext";
+import { WebcamContext } from "../context/webcamContext";
 import StickerSelector from "./StickerSelector";
 import WebcamCapture from "./WebcamCapture";
+import ShowJustTakenPics from "./showJustTakenPics";
 
 export default class VideoArea extends Component {
+    constructor(props) {
+        super(props);
+    }
     render () {
-        const WebcanCapture = () => {
-            const webcamRef = React.useRef(null);
-
-            const capture = React.useCallback(
-                () => {
-                    const imageSrc = webcamRef.current.getScreenshot();
-                },
-                [webcamRef]
-            );
-        }
         return (
                 <div className="videoSystem">
                     <div style={{
@@ -28,13 +22,14 @@ export default class VideoArea extends Component {
                         marginLeft: "5%",
                         marginTop: "3%",
                     }}>
-                        <StickerSelector />
+                        <StickerSelector photoStickers={this.props.photoStickers}/>
                         <WebcamCapture />
                         {/*<Canvas />
 					<PreviousPictures />*/}
                 </div>
+                    <ShowJustTakenPics />
                 </div>
             );
     }
 }
-VideoArea.contextType = UserContext;
+VideoArea.contextType = WebcamContext;

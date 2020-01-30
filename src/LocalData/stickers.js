@@ -3,25 +3,25 @@ export const photoStickers = [
       id: 0,
         img: require("../images/cute/computer.gif"),
         title: "computer",
-        type: "small"
+        type: "cute"
     },
     {
         id: 1,
         img: require("../images/cute/pizza.gif"),
         title: "pizza",
-        type: "small"
+        type: "cute"
     },
     {
-        id: 2,
-        img: require("../images/cute/poptart.gif"),
-        title: "poptart",
-        type: "small"
+        id: 3,
+        img: require("../images/texts/tooretro.gif"),
+        title: "too retro",
+        type: "texts"
     },
     {
         id: 3,
         img: require("../images/cute/strawberry.gif"),
         title: "strawberry",
-        type: "small"
+        type: "cute"
     },
     {
         id: 4,
@@ -82,5 +82,41 @@ export const photoStickers = [
         img: require("../images/funny/dog2.gif"),
         title: "dog",
         type: "funny"
+    },
+    {
+        id: 14,
+        img: require("../images/cute/cat.gif"),
+        title: "cat",
+        type: "cute"
+    },
+    {
+        id: 15,
+        img: require("../images/retro/bubblejug.gif"),
+        title: "gum",
+        type: "retro"
+    },
+    {
+        id: 16,
+        img: require("../images/famous/frida1.gif"),
+        title: "frida",
+        type: "famous"
+    },
+    {
+        id: 17,
+        img: require("../images/texts/broke.gif"),
+        title: "broke but cute",
+        type: "texts"
+    },
+    {
+        id: 18,
+        img: require("../images/funny/mario.gif"),
+        title: "mario",
+        type: "retro"
+    },
+    {
+        id: 19,
+        img: require("../images/texts/love.gif"),
+        title: "love",
+        type: "texts"
     }
 ];

@@ -12,6 +12,7 @@ import AccountDetails from "./AccountDetails";
 
 export default class Account extends Component {
 	render () {
+		console.log(this.context);
 		if (this.context.isLoggedIn === true)
 		{
 			return (

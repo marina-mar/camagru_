@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Webcam from "react-webcam";
 import "../style/Pages.style.css";
 import VideoArea from "./VideoArea";
+import {WebcamProvider} from "../context/webcamContext";
 import {UserContext} from "../context/userContext";
 
 export default class Studio extends Component {
@@ -10,19 +11,12 @@ export default class Studio extends Component {
 		{
 			return (
 				<div className="studioPage">
-					<VideoArea />
+						<VideoArea photoStickers={this.context.photoStickers}/>
 				</div>
 			)
 		}
 		return (
 			<div className="studioPage">
-				<div className="videoSystem">
-					{/*<StickersBar />
-					<AddText />*/}
-					<Webcam />
-					{/*<Canvas />
-					<PreviousPictures />*/}
-				</div>
 			</div>
 		);
 	}

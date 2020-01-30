@@ -1,55 +1,45 @@
 import React, { Component } from "react";
 import Webcam from "react-webcam";
 import "../style/Pages.style.css";
-import { UserContext } from "../context/userContext";
-import StickerSelector from "./StickerSelector";
+import {WebcamContext} from "../context/webcamContext";
+import {UserContext} from "../context/userContext";
 
 export default class WebcamCapture extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     setRef = webcam => {
         this.webcam = webcam;
-        this.state = {
-            imageData: null,
-            imageName: "",
-            saveImage: false
-        }
     };
 
     capture = () => {
         const imageSrc = this.webcam.getScreenshot();
-        this.setState({
-            imageData: imageSrc
-        })
-    };
-
-    printPhoto = () => {
-        if (this.state.imageSrc === null)
-            return ("no pictures yet....");
-        else
-        {
-            <img
-        }
-
+        this.context.addPic(imageSrc);
     };
 
     render () {
+        console.log(this.context);
         return (
             <div style={{
-                marginLeft: "0"
+                marginLeft: "0",
+                height: "48vh",
+                maxWidth: "58%",
             }}>
+                <canvas ref="canvas" width="100%" height="100%" />
                 <Webcam
                     audio={false}
                     ref={this.setRef}
                     screenshotFormat="image/jpeg"
                     style={{
                         height: "48vh",
-                        maxWidth: "58%",
+                        maxWidth: "80%",
                         border: "1vh #4C9D97 solid"
                     }}/>
                     <button onClick={this.capture}>Capture photo</button>
-                    <img src={this.state.imageData} />
             </div>
         );
         }
 }
 
-Webcam.contextType = UserContext;
+WebcamCapture.contextType = UserContext;
