@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+/* stickers */
+import {photoStickers} from "../LocalData/stickers";
 /*setup the context provider*/
 const UserContext = React.createContext();
 
@@ -8,6 +10,7 @@ const UserContext = React.createContext();
 class UserProvider extends Component {
 	state = {
 		isLoggedIn: true,
+		photoStickers: photoStickers,
 		userData: {
 			userName: "mcouto",
 			userId: 3,
