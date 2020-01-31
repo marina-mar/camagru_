@@ -18,18 +18,19 @@ class WebcamProvider extends Component {
         });
     };
     /* add sticker to canvas line */
-    setImgToPrint = (newImage) => {
+    addStickerToCanvas = (newSticker) => {
         this.setState({
-            sticker: {
-                imgToPrint: {
-                    xPos: 0,
-                    yPos: 0,
-                    zPos: 0,
-                    imgUrl: newImage.img,
-                    id: newImage.key,
-                    title: newImage.title
-                }
-            }
+                imgsOnCanvas:[...this.state.imgsOnCanvas,
+                            {
+                                xPos: 0,
+                                yPos: 0,
+                                zPos: this.state.totalImgsOnCanvas,
+                                imgUrl: newSticker.img,
+                                id: newSticker.key,
+                                title: newSticker.title
+                            }
+                ],
+                totalImgsOnCanvas: this.state.totalImgsOnCanvas + 1
         });
     };
 
@@ -38,11 +39,11 @@ class WebcamProvider extends Component {
             allPics: [],
             addPic: this.addPic,
             canvas: null,
-            sticker: {
-                imgToPrint: null,
-                imgsOnCanvas: [],
-            },
-            setImgToPrint: this.setImgToPrint
+
+        /* sticker on Canvas related: */
+            imgsOnCanvas: [],
+            totalImgsOnCanvas: 0,
+            addStickerToCanvas: this.addStickerToCanvas
         };
 
     render () {

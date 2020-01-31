@@ -81,3 +81,11 @@ td {
     display: flex;
     flex-direction: column;
 }
+
+.myCanvas {
+    background-color: transparent;
+    z-index: 2;
+    position: absolute;
+    left: 16vw;
+    border: 1vw pink solid;
+}
