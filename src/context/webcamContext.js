@@ -6,14 +6,7 @@ const WebcamContext = React.createContext();
 // Context Provider Component
 //  will store, in its state, the data we need
 class WebcamProvider extends Component {
-    state = {
-            //addPic: this.addPic,
-            totalPics: 0,
-            allPics: [],
-        };
-
     /* webcamPics manipulation*/
-
     addPic = (newPic) => {
         this.setState({
             allPics: [...this.state.allPics,
@@ -24,6 +17,33 @@ class WebcamProvider extends Component {
             totalPics: this.state.totalPics + 1
         });
     };
+    /* add sticker to canvas line */
+    setImgToPrint = (newImage) => {
+        this.setState({
+            sticker: {
+                imgToPrint: {
+                    xPos: 0,
+                    yPos: 0,
+                    zPos: 0,
+                    imgUrl: newImage.img,
+                    id: newImage.key,
+                    title: newImage.title
+                }
+            }
+        });
+    };
+
+    state = {
+            totalPics: 0,
+            allPics: [],
+            addPic: this.addPic,
+            canvas: null,
+            sticker: {
+                imgToPrint: null,
+                imgsOnCanvas: [],
+            },
+            setImgToPrint: this.setImgToPrint
+        };
 
     render () {
         return (

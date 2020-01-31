@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Webcam from "react-webcam";
 import "../style/Pages.style.css";
 import VideoArea from "./VideoArea";
 import {WebcamProvider} from "../context/webcamContext";
@@ -10,9 +9,11 @@ export default class Studio extends Component {
 		if (this.context.isLoggedIn === true)
 		{
 			return (
-				<div className="studioPage">
+				<WebcamProvider>
+					<div className="studioPage">
 						<VideoArea photoStickers={this.context.photoStickers}/>
-				</div>
+					</div>
+				</WebcamProvider>
 			)
 		}
 		return (

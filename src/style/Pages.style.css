@@ -76,10 +76,8 @@ td {
 }
 
 .videoSystem {
-    min-height: 72vh;
-    min-width: 78vw;
-    max-height: 72vh;
-    max-width: 78vw;
+    height: 72vh;
+    width: 78vw;
     display: flex;
     flex-direction: column;
 }

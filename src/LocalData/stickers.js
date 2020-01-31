@@ -13,7 +13,7 @@ export const photoStickers = [
     },
     {
         id: 3,
-        img: require("../images/texts/tooretro.gif"),
+        img: require("../images/lo-fi/car.gif"),
         title: "too retro",
         type: "texts"
     },
@@ -118,5 +118,41 @@ export const photoStickers = [
         img: require("../images/texts/love.gif"),
         title: "love",
         type: "texts"
+    },
+    {
+        id: 20,
+        img: require("../images/retro/patrickstar.gif"),
+        title: "patrickstart",
+        type: "retro"
+    },
+    {
+        id: 21,
+        img: require("../images/texts/nofilter.gif"),
+        title: "no filter",
+        type: "texts"
+    },
+    {
+        id: 22,
+        img: require("../images/lo-fi/eye.gif"),
+        title: "eye",
+        type: "lo-fi"
+    },
+    {
+        id: 23,
+        img: require("../images/texts/not okay.gif"),
+        title: "not ok",
+        type: "texts"
+    },
+    {
+        id: 24,
+        img: require("../images/lo-fi/planet.gif"),
+        title: "planet",
+        type: "lo-fi"
+    },
+    {
+        id: 25,
+        img: require("../images/lo-fi/toy.gif"),
+        title: "toy",
+        type: "lo-fi"
     }
 ];

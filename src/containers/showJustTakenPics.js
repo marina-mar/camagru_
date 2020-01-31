@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../style/Pages.style.css";
-import { UserContext } from "../context/userContext";
+import { WebcamContext } from "../context/webcamContext";
 
 export default class ShowJustTakenPics extends Component {
     printImages () {
@@ -8,10 +8,9 @@ export default class ShowJustTakenPics extends Component {
         if (this.context.totalPics > 0)
         {
             return this.context.allPics.map( pic => {
-                return  <img src = {pic.imageData} alt="new" style={{
-                                                                        width: "15vw"
-                                                                    }}
-                />
+                return  <img src = {pic.imageData}
+                             alt="new"
+                             style={{ width: "15vw" }}/>
             })
         }
         else {
@@ -26,10 +25,9 @@ export default class ShowJustTakenPics extends Component {
                 display: "flex",
                 flexDirection: "row",
                 height: "15vh",
-                maxWidth: "100%",
-                border: "1vh #4C9D97 solid",
-                marginRight: "5%",
-                marginLeft: "5%"
+                width: "70vw",
+                border: "1vw #4C9D97 solid",
+                marginLeft: "3vw"
             }}>
                 { this.printImages() }
             </div>
@@ -37,4 +35,4 @@ export default class ShowJustTakenPics extends Component {
     }
 }
 
-ShowJustTakenPics.contextType = UserContext;
+ShowJustTakenPics.contextType = WebcamContext;
