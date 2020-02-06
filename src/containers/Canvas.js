@@ -8,7 +8,7 @@ export default class Canvas extends Component {
     }
 
     placeStickers () {
-            console.log(`total stickers: `+ this.context.totalImgsOnCanvas);
+            //console.log(`total stickers: `+ this.context.totalImgsOnCanvas);
             if (this.context.totalImgsOnCanvas > 0)
             {
                 return this.context.imgsOnCanvas.map( pic => {

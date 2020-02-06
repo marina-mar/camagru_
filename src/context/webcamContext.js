@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+/* image merger */
+import mergeImages from "merge-images";
+
 /*setup the context provider*/
 const WebcamContext = React.createContext();
 
@@ -8,10 +11,29 @@ const WebcamContext = React.createContext();
 class WebcamProvider extends Component {
 /* webcamPics manipulation*/
     addPic = (newPic) => {
+        this.setState({mergingImage: newPic});
+        /*merge image with stickers */
+        if (this.state.totalImgsOnCanvas > 0)
+        {
+            // while (index < this.state.totalImgsOnCanvas)
+            // {
+            mergeImages([
+                { src: newPic, x: 0, y: 0}
+            ])
+                .then(b64 => this.setState({firstImage: b64}));
+            mergeImages([
+                { src: this.state.imgsOnCanvas[0].imgUrl, x: 0, y: 0}
+            ])
+                .then(b64 => this.setState({secondImage: b64}));
+            mergeImages([{ src: this.state.firstImage, },
+                                { src: this.state.secondImage}])
+                .then(b64 =>this.setState({finalImage: b64}));
+        }
+        // }
         this.setState({
             allPics: [...this.state.allPics,
                 {
-                    imageData: newPic,
+                    imageData: this.state.finalImage,
                     index: this.totalPics
                 }],
             totalPics: this.state.totalPics + 1
@@ -66,7 +88,8 @@ class WebcamProvider extends Component {
             totalImgsOnCanvas: 0,
             addStickerToCanvas: this.addStickerToCanvas,
             moveStickerX: this.moveStickerX,
-            moveStickerY: this.moveStickerY
+            moveStickerY: this.moveStickerY,
+            mergingImage: ''
         };
 
     render () {

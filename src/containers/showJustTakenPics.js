@@ -17,7 +17,7 @@ export default class ShowJustTakenPics extends Component {
         }
     };
     render() {
-        console.log(`total pics: `+ this.context.totalPics);
+      //  console.log(`total pics: `+ this.context.totalPics);
         return (
             <div style={{
                 overflowX: "scroll",
