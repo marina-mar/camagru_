@@ -4,7 +4,6 @@ import { WebcamContext } from "../context/webcamContext";
 
 export default class ShowJustTakenPics extends Component {
     printImages () {
-        console.log(`total pics: `+ this.context.totalPics);
         if (this.context.totalPics > 0)
         {
             return this.context.allPics.map( pic => {

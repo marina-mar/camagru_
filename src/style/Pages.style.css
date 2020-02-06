@@ -13,6 +13,7 @@
     max-width: 78vw;
     color: var(--darkOrange);
 }
+
 .accountPage {
     background-color: var(--bgPink);
     /*top-left, top-right, bottom-right, bottom-left*/
@@ -83,6 +84,8 @@ td {
 }
 
 .myCanvas {
+    height: 45vh;
+    width: 38vw;
     background-color: transparent;
     z-index: 2;
     position: absolute;
