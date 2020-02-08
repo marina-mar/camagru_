@@ -3,29 +3,39 @@ import React, { Component } from 'react';
 /* image merger */
 import mergeImages from "merge-images";
 
+/* image resizer */
+
 /*setup the context provider*/
 const WebcamContext = React.createContext();
 
 // Context Provider Component
 //  will store, in its state, the data we need
 class WebcamProvider extends Component {
-/* webcamPics manipulation*/
+    /* webcamPics manipulation*/
 
     organizeArray (newPic) {
         let array = [];
 
-        array.push({src: newPic, x: 0, y: 0});
+        let myImage = new Image();
+        myImage.src = newPic;
+        array.push({src: 'data:image/gif+xml;base64,' + btoa(myImage), x: 0, y: 0});
         let newArray = (this.state.imgsOnCanvas.map(img => {
-            /* my canvas (x, y) are inverted in the y and the x needs a little fix also for the merging:*/
-            const x = img.xPos * 5;
-            let y;
-            if (img.yPos === 0)
-                y = window.innerHeight * 1.5;
-            else if (img.yPos === window.innerHeight * 0.36)
-                y = 0;
-            else
-                y = 1.4 * img.yPos;
-            return ({ src: img.imgUrl, x: x, y: y})})
+                let resizeImage = require('resize-image');
+                /* my canvas (x, y) are inverted in the y and the x needs a little fix also for the merging:*/
+                const x = img.xPos * 5;
+                let y;
+                if (img.yPos === 0)
+                    y = window.innerHeight * 1.5;
+                else if (img.yPos === window.innerHeight * 0.36)
+                    y = 0;
+                else
+                    y = 4 * img.yPos;
+                let image = new Image();
+                image.width = 200;
+                image.height = 300;
+                image.src = img.imgUrl;
+                console.log(image);
+                return ({ src: 'data:image/gif+xml;base64,' + btoa(image), x: x, y: y})})
         );
         return array.concat(newArray);
     }
@@ -35,7 +45,7 @@ class WebcamProvider extends Component {
         /*merge image with stickers */
         if (this.state.totalImgsOnCanvas > 0)
         {
-            const stuffToMerge = this.organizeArray(newPic);
+            let stuffToMerge = this.organizeArray(newPic);
             mergeImages(stuffToMerge)
                 .then(b64 => this.setState({mergingImage: b64}));
         }
