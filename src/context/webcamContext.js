@@ -1,58 +1,30 @@
 import React, { Component } from 'react';
 
-/* image merger */
-import mergeImages from "merge-images";
-
-/* image resizer */
-
 /*setup the context provider*/
 const WebcamContext = React.createContext();
 
 // Context Provider Component
 //  will store, in its state, the data we need
 class WebcamProvider extends Component {
-    /* webcamPics manipulation*/
-
-    organizeArray (newPic) {
-        let array = [];
-
-        let myImage = new Image();
-        myImage.src = newPic;
-        array.push({src: 'data:image/gif+xml;base64,' + btoa(myImage), x: 0, y: 0});
-        let newArray = (this.state.imgsOnCanvas.map(img => {
-                let resizeImage = require('resize-image');
-                /* my canvas (x, y) are inverted in the y and the x needs a little fix also for the merging:*/
-                const x = img.xPos * 5;
-                let y;
-                if (img.yPos === 0)
-                    y = window.innerHeight * 1.5;
-                else if (img.yPos === window.innerHeight * 0.36)
-                    y = 0;
-                else
-                    y = 4 * img.yPos;
-                let image = new Image();
-                image.width = 200;
-                image.height = 300;
-                image.src = img.imgUrl;
-                console.log(image);
-                return ({ src: 'data:image/gif+xml;base64,' + btoa(image), x: x, y: y})})
-        );
-        return array.concat(newArray);
+/* webcamPics manipulation*/
+    mergeStickers (newPic) {
+        const webcamImage = new Image();
+        webcamImage.src = newPic;
+        webcamImage.onload = () => {
+            /* this image is the webcam one, I'll position in it in the (0, maxY)
+                because the way I did the FakeCanvas was inverted =(
+                void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+             */
+            this.state.canvas.drawImage(webcamImage, 0, 0)
+        }
     }
 
     addPic = (newPic) => {
-        this.setState({ mergingImage: newPic });
-        /*merge image with stickers */
-        if (this.state.totalImgsOnCanvas > 0)
-        {
-            let stuffToMerge = this.organizeArray(newPic);
-            mergeImages(stuffToMerge)
-                .then(b64 => this.setState({mergingImage: b64}));
-        }
+        this.mergeStickers(newPic);
         this.setState({
             allPics: [...this.state.allPics,
                 {
-                    imageData: this.state.mergingImage,
+                    imageData: newPic,
                     index: this.totalPics
                 }],
             totalPics: this.state.totalPics + 1
@@ -94,21 +66,41 @@ class WebcamProvider extends Component {
         this.setState({
             imgsOnCanvas: newImgsOnCanvas
         });
+    };
+
+    /* Set RealCanvas */
+    setRealCanvas = (realCanvas) => {
+        this.setState({canvas: realCanvas});
+    };
+
+    updateCanvasDimensions = () => {
+        this.setState({
+            canvasWidth: window.innerWidth * 0.38,
+            canvasHeight: window.innerHeight * 0.45,
+        });
     }
 
     state = {
+        /* general sizes */
+            updateCanvasDimensions: this.updateCanvasDimensions,
+            canvasWidth: 0,
+            canvasHeight: 0,
+
+        /* manage showJustTakenPics */
             totalPics: 0,
             allPics: [],
             addPic: this.addPic,
-            canvas: null,
 
-        /* sticker on Canvas related: */
+        /* realCanvas */
+            canvas: null,
+            setRealCanvas: this.setRealCanvas,
+
+        /* sticker on FakeCanvas related: */
             imgsOnCanvas: [],
             totalImgsOnCanvas: 0,
             addStickerToCanvas: this.addStickerToCanvas,
             moveStickerX: this.moveStickerX,
-            moveStickerY: this.moveStickerY,
-            mergingImage: ''
+            moveStickerY: this.moveStickerY
         };
 
     render () {

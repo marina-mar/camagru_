@@ -5,7 +5,8 @@ import { WebcamContext } from "../context/webcamContext";
 import StickerSelector from "./StickerSelector";
 import WebcamCapture from "./WebcamCapture";
 import ShowJustTakenPics from "./showJustTakenPics";
-import Canvas from "./Canvas"
+import FakeCanvas from "./fakeCanvas"
+import RealCanvas from "./RealCanvas";
 
 export default class VideoArea extends Component {
     constructor(props) {
@@ -24,7 +25,8 @@ export default class VideoArea extends Component {
                         marginTop: "3%",
                     }}>
                         <StickerSelector photoStickers={this.props.photoStickers}/>
-                        <Canvas />
+                        <FakeCanvas />
+                        <RealCanvas />
                         <WebcamCapture />
                         <StickerSelector photoStickers={this.props.photoStickers}/>
                 </div>
