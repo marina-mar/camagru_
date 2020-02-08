@@ -17,6 +17,9 @@ export default class WebcamCapture extends Component {
         this.context.addPic(imageSrc);
     };
 
+    height = window.innerHeight * 1.9;
+    width = window.innerWidth * 1.4;
+
     render () {
         return (
             <div style={{
@@ -27,6 +30,8 @@ export default class WebcamCapture extends Component {
                     audio={false}
                     ref={this.setRef}
                     screenshotFormat="image/jpeg"
+                    minScreenshotHeight= {this.height}
+                    minScreenshotWidth= {this.width}
                     style={{
                         Zindex: "1",
                         height: "45vh",

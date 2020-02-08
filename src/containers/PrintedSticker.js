@@ -41,9 +41,9 @@ class PrintedSticker extends Component {
             //get mouse position in page (means that counts the outside spaces
             const x = e.pageX;
             const y = e.pageY;
-            console.log("Page X is " + x + " Page Y is " + y);
-            console.log("\nPrev X is: " + this.state.prevX + " and Prev Y is: " + this.state.prevY);
-            console.log("\nThis is MY X: " + this.state.myX + " and this is MY Y: " + this.state.myY);
+            // console.log("Page X is " + x + " Page Y is " + y);
+            // console.log("\nPrev X is: " + this.state.prevX + " and Prev Y is: " + this.state.prevY);
+            // console.log("\nThis is MY X: " + this.state.myX + " and this is MY Y: " + this.state.myY);
             //checks side that mouse is moving and moves in the WebcamContext
             //RIGHT moves +1 * how much moved
             if (this.state.prevX !== 0 && this.state.prevX !== x && this.state.prevX < x &&

@@ -10,30 +10,39 @@ const WebcamContext = React.createContext();
 //  will store, in its state, the data we need
 class WebcamProvider extends Component {
 /* webcamPics manipulation*/
+
+    organizeArray (newPic) {
+        let array = [];
+
+        array.push({src: newPic, x: 0, y: 0});
+        let newArray = (this.state.imgsOnCanvas.map(img => {
+            /* my canvas (x, y) are inverted in the y and the x needs a little fix also for the merging:*/
+            const x = img.xPos * 5;
+            let y;
+            if (img.yPos === 0)
+                y = window.innerHeight * 1.5;
+            else if (img.yPos === window.innerHeight * 0.36)
+                y = 0;
+            else
+                y = 1.4 * img.yPos;
+            return ({ src: img.imgUrl, x: x, y: y})})
+        );
+        return array.concat(newArray);
+    }
+
     addPic = (newPic) => {
-        this.setState({mergingImage: newPic});
+        this.setState({ mergingImage: newPic });
         /*merge image with stickers */
         if (this.state.totalImgsOnCanvas > 0)
         {
-            // while (index < this.state.totalImgsOnCanvas)
-            // {
-            mergeImages([
-                { src: newPic, x: 0, y: 0}
-            ])
-                .then(b64 => this.setState({firstImage: b64}));
-            mergeImages([
-                { src: this.state.imgsOnCanvas[0].imgUrl, x: 0, y: 0}
-            ])
-                .then(b64 => this.setState({secondImage: b64}));
-            mergeImages([{ src: this.state.firstImage, },
-                                { src: this.state.secondImage}])
-                .then(b64 =>this.setState({finalImage: b64}));
+            const stuffToMerge = this.organizeArray(newPic);
+            mergeImages(stuffToMerge)
+                .then(b64 => this.setState({mergingImage: b64}));
         }
-        // }
         this.setState({
             allPics: [...this.state.allPics,
                 {
-                    imageData: this.state.finalImage,
+                    imageData: this.state.mergingImage,
                     index: this.totalPics
                 }],
             totalPics: this.state.totalPics + 1

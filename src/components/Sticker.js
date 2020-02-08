@@ -10,8 +10,6 @@ export default class Sticker extends Component {
 
     addSticker = () => {
         const image = new Image();
-        const wSize = window.innerWidth * 0.12;
-        const hSize = window.innerHeight * 0.09;
         this.context.addStickerToCanvas(this.props);
         image.src = this.props.img;
     };
